@@ -44,6 +44,10 @@ using PyPlot
 using CubicSplines
 using Test
 
+# Interpolate a sine function with white noise
+xdata = range(0,stop=4π,length=20) .+ 0.5*rand(MersenneTwister(1234),20)
+ydata = sin.(xdata)
+
 # Extrapolate the spline with a quadratic curve to the left and a cubic curve to the right
 spline = CubicSpline(xdata, ydata; extrapl=[0.0; 0.5], extrapr=[1.0; 0.0; 0.5])
 left_value = -1.0
