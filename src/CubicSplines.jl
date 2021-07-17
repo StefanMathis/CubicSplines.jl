@@ -39,7 +39,7 @@ end
 """
 Construct an Akima spline according to [1]. In addition to the original method,
 this implementation also allows for customized extrapolation at both spline
-sides. The extrapolation behaviour is defined by the coefficients of a 3rd degree
+sides. The extrapolation behaviour is defined by the coefficients of an
 polynomial which can be given as additional keyword arguments extrapl and extrapr
 to the constructor. extrapl and/or extrapr should be either "nothing" or a
 set of coefficients.
