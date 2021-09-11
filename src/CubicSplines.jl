@@ -3,6 +3,7 @@ Samuel J Palmer
 Implementation is based on:
 [1]: Akima, Hiroshi (1970). "A new method of interpolation and smooth curve fitting
     based on local procedures". Journal of the ACM. 17: 589–602.
+
 Original module by Samuel J. Palmer, see https://github.com/sp94/CubicSplines.jl
 Modified by Stefan Mathis to allow for customized extrapolation and to use a
 binary search for interval identification.
@@ -42,11 +43,13 @@ sides. The extrapolation behaviour is defined by the coefficients of a 3rd degre
 polynomial which can be given as additional keyword arguments extrapl and extrapr
 to the constructor. extrapl and/or extrapr should be either "nothing" or a
 set of coefficients.
+
 Case 1: Extrapolation is set to "nothing"
 ================================================================================
 In this case, the default quadratic extrapolation according to section 2.3 of [1]
 is used to construct the spline and the spline throws an error when evaluated
 outside its boundaries.
+
 Case 2: Extrapolation is set to a vector
 ================================================================================
 The container is given as a n-element collection of values:
@@ -257,6 +260,7 @@ Binary search to find the interval which contains a given number. The interval
 is given as a sorted array of real numbers. Each neighbouring pair is interpreted
 as an interval. The function returns the lower index of the interval containing
 the given number.
+
 If the returned index is 0, the number is located in the interval (-Inf, array[1])
 If the returned index is length(array), the number is located in the interval [array[end], Inf)
 """
